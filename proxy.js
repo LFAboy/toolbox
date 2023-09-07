@@ -10,6 +10,9 @@ let p = new Proxy(obj, {
   },
   set(target, proptype, value, reactiver) {
     return target[proptype] = value;
+  },
+  deleteProperty(target, proptype) {
+    return delete target[proptype];
   }
 })
 
