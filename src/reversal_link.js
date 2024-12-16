@@ -6,30 +6,28 @@
 // 思路2递归方式：我们要反转一个链表，那么只需要用除头节点外的已经反转过的链表，在末尾拼接上头节点就可以了。此时的末尾
 //    指的是逻辑上的末尾，并不是物理上的末尾，逻辑上的末尾其实就是物理上的头节点的后继节点。
 
-
 // 采用思路1
 function reversal(head) {
-  if (head == null || head.next == null) return head;
-  let prev = null;
-  let cur = head;
-  let next = head.next;
+  if (head == null || head.next == null) return head
+  let prev = null
+  let cur = head
+  let next = head.next
 
-  while(1) {
-    cur.next = prev;
-    if (next == null) break;
-    prev = cur;
-    cur = next;
-    next = cur.next;
+  while (1) {
+    cur.next = prev
+    if (next == null) break
+    prev = cur
+    cur = next
+    next = cur.next
   }
-  return cur;
+  return cur
 }
-
 
 // 采用思路2
 function reverse(head) {
-  if (head == null || head.next == null) return head;
-  let newHead = reverse(head.next);
-  head.next.next = head;
-  head.next = null;
-  return newHead;
+  if (head == null || head.next == null) return head
+  let newHead = reverse(head.next)
+  head.next.next = head
+  head.next = null
+  return newHead
 }
